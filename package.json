@@ -1,0 +1,23 @@
+{
+  "name": "shell.js",
+  "version": "1.0.0",
+  "description": "Bash-like Shell written in JavaScript",
+  "main": "shell.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tesla59/shell.js.git"
+  },
+  "keywords": [
+    "shell",
+    "javascript"
+  ],
+  "author": "Nishant Singh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tesla59/shell.js/issues"
+  },
+  "homepage": "https://github.com/tesla59/shell.js#readme"
+}
