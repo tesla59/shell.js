@@ -1,6 +1,6 @@
 import * as shell from "./shell.js"
 
-export const ParseCommand = (command) => {
+export const ParseCommand = (command, ...arguements) => {
     switch(command) {
         case "pwd":
             pwd()
@@ -8,7 +8,7 @@ export const ParseCommand = (command) => {
     }
 }
 
-export const pwd = () => {
+const pwd = () => {
     console.log(shell.currentDirectory)
     return shell.currentDirectory
 }
