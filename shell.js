@@ -3,7 +3,7 @@ import fs from 'fs';
 import promptSync from 'prompt-sync';
 import { userInfo } from "os";
 
-const prompt = promptSync({ sigint: true });
+const prompt = promptSync({ sigint: false, eot: true, autocomplete: true });
 const homedir = userInfo().homedir
 const user = userInfo().username
 const exec = child.exec
@@ -19,11 +19,13 @@ for (; ;) {
     if (prefix == homedir) prefix = "~"
 
     let input = prompt(prefix + " $ ")
-    let args = input.split(" ")
-    let command = args.shift()
+    if (input) {
+        let args = input.split(" ")
+        let command = args.shift()
 
-    // Built-in shell commands
-    if (BuiltInCommands.includes(command)) {
-        ParseCommand(command, args)
+        // Built-in shell commands
+        if (BuiltInCommands.includes(command)) {
+            ParseCommand(command, args)
+        }
     }
 }
