@@ -19,13 +19,14 @@ for (; ;) {
     if (prefix == homedir) prefix = "~"
 
     let input = prompt(prefix + " $ ")
-    if (input) {
-        let args = input.split(" ")
-        let command = args.shift()
+    if (!input) {
+        continue
+    }
+    let args = input.split(" ")
+    let command = args.shift()
 
-        // Built-in shell commands
-        if (BuiltInCommands.includes(command)) {
-            ParseCommand(command, args)
-        }
+    // Built-in shell commands
+    if (BuiltInCommands.includes(command)) {
+        ParseCommand(command, args)
     }
 }
