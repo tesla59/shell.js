@@ -19,5 +19,9 @@
   "bugs": {
     "url": "https://github.com/tesla59/shell.js/issues"
   },
-  "homepage": "https://github.com/tesla59/shell.js#readme"
+  "homepage": "https://github.com/tesla59/shell.js#readme",
+  "type": "module",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
 }
