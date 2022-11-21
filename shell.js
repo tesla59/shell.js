@@ -4,19 +4,19 @@ import promptSync from 'prompt-sync';
 import { userInfo } from "os";
 
 const prompt = promptSync({ sigint: false, eot: true, autocomplete: true });
-const homedir = userInfo().homedir
+const HOMEDIR = userInfo().homedir
 const user = userInfo().username
 const exec = child.exec
 
 import { ParseCommand } from "./commands.js"
 
 export let PATH = ["/usr/local/bin", "/usr/bin", "/usr/local/sbin"]
-export let currentDirectory = homedir
+export let currentDirectory = HOMEDIR
 export let BuiltInCommands = ["cd", "pwd", "ls", "fg", "exit"]
 
 for (; ;) {
     let prefix = currentDirectory
-    if (prefix == homedir) prefix = "~"
+    if (prefix == HOMEDIR) prefix = "~"
 
     let input = prompt(prefix + " $ ")
     if (!input) {
