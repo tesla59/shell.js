@@ -3,10 +3,10 @@ import fs from 'fs';
 import promptSync from 'prompt-sync';
 import { userInfo } from "os";
 
-const prompt = promptSync({ sigint: false, eot: true, autocomplete: true });
-const HOMEDIR = userInfo().homedir
-const user = userInfo().username
-const exec = child.exec
+export const prompt = promptSync({ sigint: false, eot: true, autocomplete: true });
+export const HOMEDIR = userInfo().homedir
+export const user = userInfo().username
+export const exec = child.exec
 
 import { ParseCommand } from "./commands.js"
 
