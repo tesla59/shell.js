@@ -8,9 +8,11 @@ const homedir = userInfo().homedir
 const user = userInfo().username
 const exec = child.exec
 
-let PATH = ["/usr/local/bin", "/usr/bin", "/usr/local/sbin"]
-let currentDirectory = homedir
-let BuiltInCommands = ["cd", "ls", "exit", ""]
+import { ParseCommand } from "./commands.js"
+
+export let PATH = ["/usr/local/bin", "/usr/bin", "/usr/local/sbin"]
+export let currentDirectory = homedir
+export let BuiltInCommands = ["cd", "pwd", "ls", "fg", "exit"]
 
 for (; ;) {
     let prefix = currentDirectory
@@ -19,4 +21,9 @@ for (; ;) {
     let input = prompt(prefix + " $ ")
     let args = input.split(" ")
     let command = args.shift()
+
+    // Built-in shell commands
+    if (BuiltInCommands.includes(command)) {
+        ParseCommand(command, args)
+    }
 }
