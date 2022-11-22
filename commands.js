@@ -1,6 +1,6 @@
 import * as shell from "./shell.js"
+import { readDir } from "./utils.js";
 import { exit } from 'node:process';
-
 
 export const ParseCommand = (command, args) => {
     switch (command) {
