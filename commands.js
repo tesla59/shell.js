@@ -1,4 +1,6 @@
 import * as shell from "./shell.js"
+import { exit } from 'node:process';
+
 
 export const ParseCommand = (command, args) => {
     switch (command) {
@@ -8,6 +10,8 @@ export const ParseCommand = (command, args) => {
         case "cd":
             cd(args)
             break
+        case "exit":
+            (() => {console.log("exit"); exit(0)})()
     }
 }
 
