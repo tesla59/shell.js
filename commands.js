@@ -10,6 +10,9 @@ export const ParseCommand = (command, args) => {
         case "cd":
             cd(args)
             break
+        case "ls":
+            ls(args)
+            break
         case "exit":
             (() => { console.log("exit"); exit(0) })()
     }
@@ -18,6 +21,10 @@ export const ParseCommand = (command, args) => {
 const pwd = () => {
     console.log(currentDirectory)
     return currentDirectory
+}
+
+const ls = (args) => {
+    if (!args.length) { readDir(currentDirectory).forEach((val) => { if (val[0] != '.') { console.log(val) } }); return }
 }
 
 const cd = (args) => {
