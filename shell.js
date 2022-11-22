@@ -10,9 +10,9 @@ export const exec = child.exec
 
 import { ParseCommand } from "./commands.js"
 
-export let PATH = ["/usr/local/bin", "/usr/bin", "/usr/local/sbin"]
-export let currentDirectory = HOMEDIR
-export let BuiltInCommands = ["cd", "pwd", "ls", "fg", "exit"]
+global.PATH = ["/usr/local/bin", "/usr/bin", "/usr/local/sbin"]
+global.currentDirectory = HOMEDIR
+global.BuiltInCommands = ["cd", "pwd", "ls", "fg", "exit"]
 
 for (; ;) {
     let prefix = currentDirectory
