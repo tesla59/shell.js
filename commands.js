@@ -11,7 +11,7 @@ export const ParseCommand = (command, args) => {
             cd(args)
             break
         case "exit":
-            (() => {console.log("exit"); exit(0)})()
+            (() => { console.log("exit"); exit(0) })()
     }
 }
 
@@ -21,5 +21,5 @@ const pwd = () => {
 }
 
 const cd = (args) => {
-    if (!args.length) { currentDirectory = shell.HOMEDIR }
+    if (!args.length) { currentDirectory = shell.HOMEDIR; return }
 }
