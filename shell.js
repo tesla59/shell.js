@@ -1,9 +1,8 @@
 import * as child from 'child_process';
-import fs from 'fs';
 import promptSync from 'prompt-sync';
 import { userInfo } from "os";
 
-export const prompt = promptSync({ sigint: false, eot: true, autocomplete: true });
+export const prompt = promptSync({ sigint: false, eot: true, autocomplete: false });
 export const HOMEDIR = userInfo().homedir
 export const user = userInfo().username
 export const exec = child.exec
