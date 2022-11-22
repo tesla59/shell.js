@@ -44,4 +44,16 @@ const ls = (args) => {
 
 const cd = (args) => {
     if (!args.length) { currentDirectory = shell.HOMEDIR; return }
+    let dir
+    if (args[0][0] != '/') {
+        dir = path.join(currentDirectory, args[0])
+    } else {
+        dir = args[0]
+    }
+    try {
+        readDir(dir)
+        currentDirectory = dir
+    } catch (err) {
+        console.log("Error: directory not found:", args[0])
+    }
 }
