@@ -15,8 +15,7 @@ global.currentDirectory = HOMEDIR
 global.BuiltInCommands = ["cd", "pwd", "ls", "fg", "exit"]
 
 for (; ;) {
-    let prefix = currentDirectory
-    if (prefix == HOMEDIR) prefix = "~"
+    let prefix = currentDirectory.replace(HOMEDIR, "~")
 
     let input = prompt(prefix + " $ ")
     if (!input) {
