@@ -1,16 +1,12 @@
-import * as child from 'child_process';
 import promptSync from 'prompt-sync';
 import { userInfo } from "os";
-
-export const prompt = promptSync({ sigint: false, eot: true, autocomplete: false });
-export const HOMEDIR = userInfo().homedir
-export const user = userInfo().username
-export const exec = child.exec
-
 import { ParseCommand } from "./commands.js"
 
-global.PATH = ["/usr/local/bin", "/usr/bin", "/usr/local/sbin"]
-global.BuiltInCommands = ["cd", "pwd", "ls", "fg", "exit"]
+const prompt = promptSync({ sigint: false, eot: true, autocomplete: false });
+const BuiltInCommands = ["cd", "pwd", "ls", "fg", "exit"]
+const PATH = ["/usr/local/bin", "/usr/bin", "/usr/local/sbin"]
+
+export const HOMEDIR = userInfo().homedir
 
 process.chdir(HOMEDIR)
 
