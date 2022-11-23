@@ -6,7 +6,7 @@ import path from "node:path";
 export const ParseCommand = (command, args) => {
     switch (command) {
         case "pwd":
-            pwd()
+            (() => console.log(process.cwd()))()
             break
         case "cd":
             cd(args)
@@ -17,11 +17,6 @@ export const ParseCommand = (command, args) => {
         case "exit":
             (() => { console.log("exit"); exit(0) })()
     }
-}
-
-const pwd = () => {
-    console.log(process.cwd())
-    return process.cwd()
 }
 
 const ls = (args) => {
