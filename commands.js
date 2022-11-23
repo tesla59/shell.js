@@ -28,7 +28,7 @@ const ls = (args) => {
     if (!args.length) { readDir(currentDirectory).forEach((val) => { if (val[0] != '.') { console.log(val) } }); return }
     for (let i = 0; i < args.length; i++) {
         let dir
-        console.log("=>",args[i],":")
+        console.log("=>", args[i], ":")
         if (args[i][0] != '/') {
             dir = path.join(currentDirectory, args[i])
         } else {
@@ -43,7 +43,11 @@ const ls = (args) => {
 }
 
 const cd = (args) => {
-    if (!args.length) { currentDirectory = shell.HOMEDIR; return }
+    if (!args.length) {
+        currentDirectory = shell.HOMEDIR
+        process.chdir(currentDirectory)
+        return
+    }
     let dir
     if (args[0][0] != '/') {
         dir = path.join(currentDirectory, args[0])
@@ -53,6 +57,7 @@ const cd = (args) => {
     try {
         readDir(dir)
         currentDirectory = dir
+        process.chdir(currentDirectory)
     } catch (err) {
         console.log("Error: directory not found:", args[0])
     }

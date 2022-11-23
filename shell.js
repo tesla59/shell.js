@@ -13,6 +13,8 @@ global.PATH = ["/usr/local/bin", "/usr/bin", "/usr/local/sbin"]
 global.currentDirectory = HOMEDIR
 global.BuiltInCommands = ["cd", "pwd", "ls", "fg", "exit"]
 
+process.chdir(currentDirectory)
+
 for (; ;) {
     let prefix = currentDirectory.replace(HOMEDIR, "~")
 
