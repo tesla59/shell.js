@@ -10,13 +10,12 @@ export const exec = child.exec
 import { ParseCommand } from "./commands.js"
 
 global.PATH = ["/usr/local/bin", "/usr/bin", "/usr/local/sbin"]
-global.currentDirectory = HOMEDIR
 global.BuiltInCommands = ["cd", "pwd", "ls", "fg", "exit"]
 
-process.chdir(currentDirectory)
+process.chdir(HOMEDIR)
 
 for (; ;) {
-    let prefix = currentDirectory.replace(HOMEDIR, "~")
+    let prefix = process.cwd().replace(HOMEDIR, "~")
 
     let input = prompt(prefix + " $ ")
     if (!input) {
