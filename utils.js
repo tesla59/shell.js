@@ -3,7 +3,7 @@ import { spawnSync } from 'child_process';
 
 export const readDir = (path) => {
     return fs.readdirSync(path, { withFileTypes: true })
-        .filter((item) => item.isDirectory())
+        // .filter((item) => item.isDirectory())
         .map((item) => item.name)
 }
 
